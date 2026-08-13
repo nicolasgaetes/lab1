@@ -47,7 +47,7 @@ List* crea_lista() {
    for(int i = 1 ; i <= 10 ; i++) {
       int* elem = malloc(sizeof(int));
       *elem = i;
-      pushFront(L, elem);
+      pushBack(L, elem);
    }
    return L;
 }
@@ -79,7 +79,16 @@ posiciona en el elemento anterior.
 */
 
 void eliminaElementos(List*L, int elem){
+   int *dato = first(L);
 
+   while (dato != NULL) {
+      if (*dato == elem) {
+         free(popCurrent(L));
+         dato = next(L);
+      } else {
+         dato = next(L);
+      }
+   }
 }
 
 /*
