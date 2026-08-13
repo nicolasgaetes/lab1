@@ -47,3 +47,9 @@ exercises.c:105:12: error: implicit declaration of function ‘isEmpty’ [-Wimp
   105 |    while (!isEmpty(P1)) {
       |            ^~~~~~~
 9470e35
+Thu Aug 13 10:02:51 PM UTC 2026: 
+ exercises.c | 4 ++--
+ 1 file changed, 2 insertions(+), 2 deletions(-)
+ tests:  3|2
+total_score: 40/70
+a36f82d
