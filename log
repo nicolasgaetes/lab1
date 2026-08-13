@@ -2,3 +2,14 @@ Thu Aug 13 09:25:31 PM UTC 2026:
  tests:  0|5
 total_score: 0/70
 22302f7
+Thu Aug 13 09:32:18 PM UTC 2026: 
+ exercises.c | 6 ++++++
+ 1 file changed, 6 insertions(+)
+Compilation failed
+In file included from test.c:5:
+exercises.c: In function ‘crea_lista’:
+exercises.c:50:7: error: implicit declaration of function ‘push_front’; did you mean ‘pushFront’? [-Wimplicit-function-declaration]
+   50 |       push_front(L, elem);
+      |       ^~~~~~~~~~
+      |       pushFront
+9b02c2e
