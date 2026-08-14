@@ -71,3 +71,16 @@ Fri Aug 14 08:25:34 PM UTC 2026:
  tests:  4|1
 total_score: 50/70
 1769c5f
+Fri Aug 14 10:03:02 PM UTC 2026: 
+ exercises.c | 18 ++++++++++++++++++
+ 1 file changed, 18 insertions(+)
+Compilation failed
+In file included from test.c:5:
+exercises.c: In function ‘parentesisBalanceados’:
+exercises.c:141:15: error: expected ‘;’ before ‘}’ token
+  141 |       return 1
+      |               ^
+      |               ;
+  142 |    }
+      |    ~           
+8d6fef4
