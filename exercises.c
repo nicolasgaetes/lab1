@@ -42,14 +42,14 @@ Al finalizar retorna la lista creada.
 */
 
 List* crea_lista() {
-   List* L = create_list();
+   List* L = create_list(); //se crea la lista
 
-   for(int i = 1 ; i <= 10 ; i++) {
-      int* elem = malloc(sizeof(int));
-      *elem = i;
-      pushBack(L, elem);
+   for(int i = 1 ; i <= 10 ; i++) { //recorro la lista del 1 al 10
+      int* elem = malloc(sizeof(int)); //reservo la memoria
+      *elem = i; //guardo el valor
+      pushBack(L, elem); //inserto el elemento al final de la lista
    }
-   return L;
+   return L; //retorno la lista
 }
 
 /*
@@ -58,15 +58,15 @@ Crea una función que reciba una lista de enteros (int*) y
 retorne la suma de sus elementos.
 */
 int sumaLista(List *L) {
-   int suma = 0;
-   int *dato;
+   int suma = 0; //creo una variable suma en 0
+   int *dato; //creo un puntero para recorrer los datos de la lista
 
-   dato = first(L);
-   while (dato != NULL) {
-      suma += *dato;
-      dato = next(L);
+   dato = first(L); //obtengo el primer dato de la lista
+   while (dato != NULL) { //mientras haya elementos
+      suma += *dato; //sumo el valor apuntado por dato
+      dato = next(L); //avanzo al siguiente elemento de la lista
    }
-   return suma;
+   return suma; //retorno la suma de todos los elementos
 }
 
 /*
@@ -79,14 +79,14 @@ posiciona en el elemento anterior.
 */
 
 void eliminaElementos(List*L, int elem){
-   int *dato = first(L);
+   int *dato = first(L); //me posiciono en el primer elemento de la lista
 
-   while (dato != NULL) {
-      if (*dato == elem) {
-         free(popCurrent(L));
-         dato = next(L);
+   while (dato != NULL) { //mientras haya elementos
+      if (*dato == elem) { //si el valor actual es igual al elemento que quiero eliminar
+         free(popCurrent(L)); //elimino el elemento actual y libero su memoria
+         dato = next(L); //avanzo al siguiente
       } else {
-         dato = next(L);
+         dato = next(L); //si no se elimina, avanzo al siguiente
       }
    }
 }
@@ -99,18 +99,18 @@ Puedes usar una pila auxiliar.
 */
 
 void copia_pila(Stack* P1, Stack* P2) {
-   Stack* aux = create_stack();
-   void* dato;
+   Stack* aux = create_stack(); //creo una pila aux
+   void* dato; //puntero para guardar temporalmente los elementos de la pila
 
-   while (top(P1) != NULL) {
-      dato = pop(P1);
-      push(aux, dato);
+   while (top(P1) != NULL) { //mientras haya elementos
+      dato = pop(P1); //saco el elemento que esta en el tope de P1
+      push(aux, dato); //lo guardo en la pila aux
    }
 
-   while (top(aux) != NULL) {
-      dato = pop(aux);
-      push(P1, dato);
-      push(P2, dato);
+   while (top(aux) != NULL) { //mientras haya elementos
+      dato = pop(aux); //saco el elemento de la pila aux
+      push(P1, dato); //lo devuelvo a P1 para recuperar su orden original
+      push(P2, dato); //tambien lo agrego a P2 para hacer la copia
    }
 }
 
@@ -121,6 +121,9 @@ paraéntesis balanceados. Retorna 1 si están balanceados,
 0 en caso contrario.
 */
 
+/*
+La funcion recorre la cadena y utiliza una pila para guardar los parentesis de apertura. Cuando encuentra uno de cierre, verifica que coincida con el ultimo abierto. Si no coinciden retorna 0, y si al final de la pila queda vacia, retorna 1 indicando que los parentesis estan balanceados.
+*/
 int parentesisBalanceados(char *cadena) {
    Stack *P = create_stack();
    for (int i = 0; cadena[i] != '\0'; i++) {
